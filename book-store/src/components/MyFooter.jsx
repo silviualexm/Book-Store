@@ -1,8 +1,11 @@
-import ModalFooter from 'react-bootstrap/ModalFooter'
+import {Row, Col} from 'react-bootstrap'
 
 const MyFooter = () => (
-    <ModalFooter>
-       <h3>CopyRight @2021</h3>
-    </ModalFooter>
+    <Row className="fixed-bottom bg-dark text-white">
+        <Col>
+            Copyright @2021
+        </Col>
+       
+    </Row>
 )
 export default MyFooter
