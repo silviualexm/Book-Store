@@ -3,7 +3,7 @@ import {Row, Col} from 'react-bootstrap'
 const MyFooter = () => (
     <Row className="fixed-bottom bg-dark text-white">
         <Col>
-            Copyright @2021
+            <p>Copyright @2021</p>
         </Col>
        
     </Row>
