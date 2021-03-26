@@ -1,11 +1,17 @@
 import React from 'react';
 
-import {Container, Row, Col, Card, Button } from 'react-bootstrap';
+import {Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
 import items from '../data/fantasy.json';
-import Comment from './CommentArea'
+import CommentArea from './CommentArea'
 
 
 class Latest extends React.Component {
+    state = {
+        selected: null,
+    }
+
+  
+   
     render() {
         return (
            
@@ -25,13 +31,15 @@ class Latest extends React.Component {
                                             <Card.Img className="img-fluid" variant="top" src={item.img}  />
                                             <Card.Body>
                                                 <Card.Title>{item.title}</Card.Title>
-                                                <Card.Text>
-                                                    {item.category}
+                                                <Badge variant="info">{item.category}</Badge>
+                                                <Card.Text> 
                                                     Price: {item.price} $
                                                 </Card.Text>
-                                                <Button variant="primary" onClick="handleClick(e)">Details</Button>
+                                                <Button variant="primary" onClick={() => this.setState({selected: item.asin})}>Details</Button>
+                                                
                                             </Card.Body>
                                          </Card>
+                                         {this.selected && < CommentArea /*asin={this.state.selected}*/ />}  
                                     </Col>
                                 )
                                 )
@@ -39,14 +47,15 @@ class Latest extends React.Component {
                         
                    
                     </Row>
-                </Container>
-                const handleClick = () => {
-            
-                }
-            
-        )
-
+                   
+                   
         
-    }
+                </Container>
+               
+        )
+    }    
+    
+        
+    
 }
 export default Latest
