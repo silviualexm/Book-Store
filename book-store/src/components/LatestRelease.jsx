@@ -39,12 +39,13 @@ class Latest extends React.Component {
                                                 
                                             </Card.Body>
                                          </Card>
-                                         {this.selected && < CommentArea /*asin={this.state.selected}*/ />}  
+                                         
+                                         
                                     </Col>
                                 )
                                 )
                             }
-                        
+                            {this.state.selected && < CommentArea asin={this.state.selected} />}  
                    
                     </Row>
                    
