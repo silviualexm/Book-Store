@@ -1,11 +1,14 @@
 import React from 'react';
 
-import {Container, Row, Col, Card, Button } from 'react-bootstrap';
+import {Container, Row, Col, Card, Badge} from 'react-bootstrap';
 import items from '../data/fantasy.json';
-import Comment from './CommentArea'
+import CommentList from './CommentList'
 
 
 class Latest extends React.Component {
+
+   
+
     render() {
         return (
            
@@ -16,37 +19,42 @@ class Latest extends React.Component {
                             <p>The best books you can find on the web!</p>
                         </Col>
                     </Row>
+                   
+
                     <Row className="mt-3"> 
                          
                           {
-                                items.map(item => (
-                                    <Col xs={12} sm={6} md={4} lg={2} key={item.asin} > 
-                                        <Card  key={item.asin}>
+                                items.map(item => (<>
+                                    
+                                    <Col key={item.asin}  xs={12} sm={6} md={4} lg={2} > 
+                                        <Card key={item.asin}   onClick={()=>{<CommentList asin={item.asin} />}}>
                                             <Card.Img className="img-fluid" variant="top" src={item.img}  />
                                             <Card.Body>
                                                 <Card.Title>{item.title}</Card.Title>
                                                 <Card.Text>
-                                                    {item.category}
-                                                    Price: {item.price} $
+                                                    <Badge pill variant="success">
+                                                      {item.category}
+                                                    </Badge>
+                                                    <Badge pill variant="warning">
+                                                        Price: {item.price} $
+                                                    </Badge>{' '}
+                                                    
                                                 </Card.Text>
-                                                <Button variant="primary" onClick="handleClick(e)">Details</Button>
+                                               
                                             </Card.Body>
                                          </Card>
-                                    </Col>
+                                    </Col></>
                                 )
                                 )
                             }
                         
                    
                     </Row>
-                </Container>
-                const handleClick = () => {
-            
-                }
-            
+                   
+                </Container>      
         )
-
-        
     }
+   
+   
 }
 export default Latest
