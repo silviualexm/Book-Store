@@ -1,17 +1,11 @@
 import React from 'react';
 
-import {Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
+import {Container, Row, Col, Card, Button } from 'react-bootstrap';
 import items from '../data/fantasy.json';
-import CommentArea from './CommentArea'
+import Comment from './CommentArea'
 
 
 class Latest extends React.Component {
-    state = {
-        selected: null,
-    }
-
-  
-   
     render() {
         return (
            
@@ -31,15 +25,13 @@ class Latest extends React.Component {
                                             <Card.Img className="img-fluid" variant="top" src={item.img}  />
                                             <Card.Body>
                                                 <Card.Title>{item.title}</Card.Title>
-                                                <Badge variant="info">{item.category}</Badge>
-                                                <Card.Text> 
+                                                <Card.Text>
+                                                    {item.category}
                                                     Price: {item.price} $
                                                 </Card.Text>
-                                                <Button variant="primary" onClick={() => this.setState({selected: item.asin})}>Details</Button>
-                                                
+                                                <Button variant="primary" onClick="handleClick(e)">Details</Button>
                                             </Card.Body>
                                          </Card>
-                                         {this.selected && < CommentArea /*asin={this.state.selected}*/ />}  
                                     </Col>
                                 )
                                 )
@@ -47,15 +39,14 @@ class Latest extends React.Component {
                         
                    
                     </Row>
-                   
-                   
-        
                 </Container>
-               
+                const handleClick = () => {
+            
+                }
+            
         )
-    }    
-    
+
         
-    
+    }
 }
 export default Latest
