@@ -1,11 +1,12 @@
-import CommentList  from './CommentList'
-import AddComment from './AddComment'
+import CommentList from "./CommentList";
+import AddComment from "./AddComment";
 
-const Comment = () => (
-    <>
-        <CommentList />
-        <AddComment />
-        {/* <Row>
+const CommentArea = () => (
+	<>
+		<p>this is comment area component</p>
+		<CommentList />
+		<AddComment />
+		{/* <Row>
             
                 let resp = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + {this.props.asin},  {
                     headers: {
@@ -16,8 +17,7 @@ const Comment = () => (
             
             {comment}
         </Row> */}
-        
-    </>
-)
+	</>
+);
 
-export default Comment
+export default CommentArea;

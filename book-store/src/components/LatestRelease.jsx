@@ -1,60 +1,47 @@
-import React from 'react';
+import React from "react";
+import items from "../data/scifi.json";
+import { Button, Carousel, Card, Col, Container, Row } from "react-bootstrap";
 
-import {Container, Row, Col, Card, Badge} from 'react-bootstrap';
-import items from '../data/fantasy.json';
-import CommentList from './CommentList'
+class LatestRelease extends React.Component {
+	render() {
+		return (
+			<Container>
+				<Row>
+					{/* <Carousel className="col-xs-4 w-50em h-100!important"> */}
+					{items.map((item) => (
+						<Col xs={6} md={4} lg={2}>
+							<Card key={item.asin}>
+								<Card.Img variant="top" src={item.img} />
+								<Card.Body>
+									<Card.Title>{item.title}</Card.Title>
+									{/* <Card.Text>
+									Some quick example text to build on the card title and make up
+									the bulk of the card's content.
+								</Card.Text> */}
+									<Button variant="primary">Go somewhere</Button>
+								</Card.Body>
+							</Card>
+						</Col>
 
-
-class Latest extends React.Component {
-
-   
-
-    render() {
-        return (
-           
-                <Container>
-                    <Row className="mt-3">
-                        <Col xs={12} md={6} lg={4}>
-                            <h1>Latest Release</h1>
-                            <p>The best books you can find on the web!</p>
-                        </Col>
-                    </Row>
-                   
-
-                    <Row className="mt-3"> 
-                         
-                          {
-                                items.map(item => (<>
-                                    
-                                    <Col key={item.asin}  xs={12} sm={6} md={4} lg={2} > 
-                                        <Card key={item.asin}   onClick={()=>{<CommentList asin={item.asin} />}}>
-                                            <Card.Img className="img-fluid" variant="top" src={item.img}  />
-                                            <Card.Body>
-                                                <Card.Title>{item.title}</Card.Title>
-                                                <Card.Text>
-                                                    <Badge pill variant="success">
-                                                      {item.category}
-                                                    </Badge>
-                                                    <Badge pill variant="warning">
-                                                        Price: {item.price} $
-                                                    </Badge>{' '}
-                                                    
-                                                </Card.Text>
-                                               
-                                            </Card.Body>
-                                         </Card>
-                                    </Col></>
-                                )
-                                )
-                            }
-                        
-                   
-                    </Row>
-                   
-                </Container>      
-        )
-    }
-   
-   
+						// <Carousel.Item key={item.asin}>
+						// 	<img
+						// 		className="d-block w-100"
+						// 		src={item.img}
+						// 		alt={item.title}
+						// 	/>
+						// 	<Carousel.Caption>
+						// 		<h3>{item.title}</h3>
+						// 		<p>
+						// 			{item.category} - {item.price}
+						// 		</p>
+						// 	</Carousel.Caption>
+						// </Carousel.Item>
+					))}
+					{/* </Carousel> */}
+				</Row>
+			</Container>
+		);
+	}
 }
-export default Latest
+
+export default LatestRelease;
