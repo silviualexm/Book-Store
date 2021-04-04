@@ -1,12 +1,9 @@
-import React from 'react'
+import React from "react";
 
 class AddComment extends React.Component {
-    render() {
-        return (
-            <h3>Add a comment</h3>
-        )
-    }
-
+	render() {
+		return <h4>Add a comment</h4>;
+	}
 }
 
-export default AddComment
+export default AddComment;
