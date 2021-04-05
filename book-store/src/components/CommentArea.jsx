@@ -34,7 +34,7 @@ class CommentArea extends React.Component {
 		return (
 			<>
 				<CommentList comments={this.state.comments} />
-				<AddComment />
+				<AddComment elementId={this.props.elementId} />
 				{/* <Row>
 
                 let resp = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + {this.props.asin},  {

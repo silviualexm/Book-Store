@@ -1,16 +1,40 @@
 import React from "react";
-import { ListGroup } from "react-bootstrap";
+import { Form, ListGroup } from "react-bootstrap";
 import SingleComment from "./SingleComment";
 
-function CommentList(props) {
-	return (
-		<ListGroup>
-			{props.comments.map((comm) => (
-				<ListGroup.Item key={comm._id}>
-					<SingleComment comment={comm.comment} rate={comm.rate} />
-				</ListGroup.Item>
-			))}
-		</ListGroup>
-	);
+class CommentList extends React.Component {
+	state = {
+		searchFilter: "",
+	};
+	render() {
+		return (
+			<>
+				<Form>
+					<Form.Label>Here you can search for a comment: </Form.Label>
+					<Form.Control
+						type="search"
+						placeholder="search"
+						value={this.state.searchFilter}
+						onChange={(e) => this.setState({ searchFilter: e.target.value })}
+					/>
+				</Form>
+				<ListGroup>
+					{this.props.comments
+						.filter((a) =>
+							a.comment.toLowerCase().includes(this.state.searchFilter)
+						)
+						.map((comm) => (
+							<ListGroup.Item key={comm._id}>
+								<SingleComment
+									comment={comm.comment}
+									rate={comm.rate}
+									elementId={comm.elementId}
+								/>
+							</ListGroup.Item>
+						))}
+				</ListGroup>
+			</>
+		);
+	}
 }
 export default CommentList;
