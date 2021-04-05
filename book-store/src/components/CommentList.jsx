@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, ListGroup } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import SingleComment from "./SingleComment";
 
 class CommentList extends React.Component {
@@ -18,21 +18,21 @@ class CommentList extends React.Component {
 						onChange={(e) => this.setState({ searchFilter: e.target.value })}
 					/>
 				</Form>
-				<ListGroup>
+				<ul>
 					{this.props.comments
 						.filter((a) =>
 							a.comment.toLowerCase().includes(this.state.searchFilter)
 						)
 						.map((comm) => (
-							<ListGroup.Item key={comm._id}>
+							<li key={comm._id}>
 								<SingleComment
 									comment={comm.comment}
 									rate={comm.rate}
 									elementId={comm.elementId}
 								/>
-							</ListGroup.Item>
+							</li>
 						))}
-				</ListGroup>
+				</ul>
 			</>
 		);
 	}

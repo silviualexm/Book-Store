@@ -51,9 +51,9 @@ class SingleComment extends React.Component {
 	render() {
 		return (
 			<>
-				<h5>
+				<p>
 					{this.props.rate} - {this.props.comment}
-				</h5>
+				</p>
 				<Button
 					variant="danger"
 					onClick={() => this.deleteComment(this.props.elementId)}
